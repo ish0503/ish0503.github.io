@@ -9,6 +9,15 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
+        span{
+            position: relative;
+            animation: 2s;
+        }
+
+        @keyframes test{
+            0%{top:-300px;}
+            100%{top:0;}
+        }
     </style>
 </head>
 
@@ -32,6 +41,7 @@
             <li><a href="/memo/about">About Us</a></li>
         </ul>
     </nav>
+    <p><span>A</span>="안녕하세요"</p>
     <h1>Welcome to Our Website</h1>
     <p>This is the Home page. Explore our website to learn more about us!</p>
     <button id="showPopup">Show Popup</button>
