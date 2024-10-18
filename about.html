@@ -5,18 +5,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         body{
-            background-image : url('/memo/imgs/nahida-bg');
+            background-image : url('/memo/imgs/nahida-bg.jpg');
             background-repeat: no-repeat;
             background-size: cover;
-        }
-        span{
-            position: relative;
-            animation: 2s;
-        }
-
-        @keyframes test{
-            0%{top:-300px;}
-            100%{top:0;}
         }
     </style>
 </head>
@@ -41,7 +32,25 @@
             <li><a href="/memo/about">About Us</a></li>
         </ul>
     </nav>
-    <p><span>A</span>="안녕하세요"</p>
+    <style>
+        @keyframes fadeInLeft {
+            0% {
+                opacity: 0;
+                transform: translate3d(-100%, 0, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translateZ(0);
+            }
+        }
+     
+        .test_obj {
+            position: relative;
+            animation: fadeInLeft 1s;
+        }
+    </style>
+     
+    <div class="test_obj">테스트 중입니다.</div>
     <h1>Welcome to Our Website</h1>
     <p>This is the Home page. Explore our website to learn more about us!</p>
     <button id="showPopup">Show Popup</button>
