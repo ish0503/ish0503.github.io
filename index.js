@@ -6,7 +6,7 @@ app.use(express.static('sites'));
 
 // Home 페이지 라우트
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/sites/home.html');
+  res.sendFile(__dirname + '/sites/index.html');
 });
 
 // About 페이지 라우트
