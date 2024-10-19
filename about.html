@@ -4,13 +4,38 @@
     <title>Home Page</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
-        body{
-            height: 100vh;
-            background-image : url('/memo/imgs/nahida-bg.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
+        .pv-box {
+          border: 1px solid black;
+          padding: 10px;
+  
+          height: 500px;
+          overflow-y: scroll;
         }
-    </style>
+        .pv-box img {
+          width: 300px;
+          height: auto;
+        }
+        .pv-box .fade-wrap {
+          /* 나타나는 효과가 1초동안 발생 */
+          transition: 1s;
+  
+          /* 투명도 0 (안보임) */
+          opacity: 0;
+  
+          /* 왼쪽에서 오른쪽으로 나타나게 하기 위함 */
+          position: relative;
+          left: -50px;
+  
+          margin-bottom: 20px;
+        }
+        .pv-box .fade-wrap.fade-in {
+          /* 투명도 0 (보임) */
+          opacity: 1;
+  
+          /* 왼쪽에서 오른쪽으로 나타나게 하기 위함 */
+          left: 0;
+        }
+      </style>
 </head>
 
 <script>
