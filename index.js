@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from "https://cdn.skypack.dev/mongoose@8.7.2";
 mongoose.set("strictQuery", true);
 mongoose
   .connect(process.env.MONGO, {
