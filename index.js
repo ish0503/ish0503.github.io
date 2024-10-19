@@ -17,11 +17,18 @@ mongoose.connection.on("disconnected", () => {
 
 const message_Schema = require("/memo/models/txtdata.js")
 
-async function saveMessage(username, msg){
-  await message_Schema.updateOne(
-      {userid: username},
-      { message: msg, time: Date.now()},
-      {upsert:true}
+async function saveMessage(){
+  const msg = document.getElementById('name').value;
+  console.log(msg)
+  await message_Schema.findOneAndUpdate(
+      {
+          $push : { station_names : {
+              userid : "Text", 
+              message : msg,
+              time    : Date.now(),
+          }
+          }
+      }
   );
 }
 
