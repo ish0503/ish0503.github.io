@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body{
+            height: 100vh;
+            background-image : url('/memo/imgs/nahida-bg.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        
+        .pv-box {
+          border: 1px solid black;
+          padding: 10px;
+  
+          background-attachment: fixed;
+          overflow-y: hidden;
+        }
+        .pv-box img {
+          width: 300px;
+          height: auto;
+        }
+        .pv-box .fade-wrap {
+          /* 나타나는 효과가 1초동안 발생 */
+          transition: 1s;
+  
+          /* 투명도 0 (안보임) */
+          opacity: 0;
+  
+          /* 왼쪽에서 오른쪽으로 나타나게 하기 위함 */
+          position: relative;
+          left: -50px;
+  
+          margin-bottom: 20px;
+        }
+        .pv-box .fade-wrap.fade-in {
+          /* 투명도 0 (보임) */
+          opacity: 1;
+  
+          /* 왼쪽에서 오른쪽으로 나타나게 하기 위함 */
+          left: 0;
+        }
+        .pv-box .fade-wrap h2, .pv-box .fade-wrap p{
+            color: white; 
+            text-shadow: 
+            -1px 0px black, 
+            0px 1px black, 
+            1px 0px black, 
+            0px -1px black;
+        }
+      </style>
+</head>
+
+<script>
+    $(document).ready(function() {
+        $("#showPopup").click(function() {
+            $("#popup").show();
+        });
+        
+        $("#closePopup").click(function() {
+            $("#popup").hide();
+        });
+    });
+</script>
+    
+
+<body>
+    <script type="module" src="/memo/index.js"></script>
+    <input id='name' onchange='saveMessage()'/>
+    <div class="pv-box">
+        <div class="fade-wrap">
+          <h2>이 사이트는 무엇입니까?</h2>
+          <img src="/memo/imgs/ibuki.png" alt="img" style="width: 400px; height: 533px;" />
+          <p>
+            이 사이트는 한국에서 최초로 시작되어 일년에 한바퀴를 돌면서 
+            받는 사람에게 행운을 주었고..
+            사이트 이름에서 알 수 있듯이 간단히 메모하는 사이트입니다
+          </p>
+        </div>
+        <div class="fade-wrap">
+          <h2>사이트의 장점</h2>
+          <img src="/memo/imgs/kokkoro.png" alt="img" style="width: 400px; height: 562px;" />
+          <p>
+            없다
+          </p>
+        </div>
+        <div class="fade-wrap">
+          <h2>경험을 향상시키세요</h2>
+          <img src="/memo/imgs/miku.jpg" alt="img" style="width: 400px; height: 555px;" />
+          <p>
+            경험을 향상 시킬순 없겠지만 경험을 향상시키십시오
+          </p>
+        </div>
+        <div class="fade-wrap">
+          <h2>환영합니다</h2>
+          <img src="/memo/imgs/gothic_yura.png" alt="img" style="width: 400px; height: 700px;" />
+          <p>
+            환영합니다!
+          </p>
+        </div>
+      </div>
+      <script>
+        /* javascript */
+        // Intersection Observer 생성
+        const observer = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                // 화면에 들어옴
+                entry.target.classList.add("fade-in");
+              } else {
+                // 화면에서 나감
+                entry.target.classList.remove("fade-in");
+              }
+            });
+          },
+          // 화면에서 해당 요소가 10% 이상 보일 경우 화면에 들어온 것으로 판단함
+          { threshold: 0.1 }
+        );
+  
+        // 관찰 대상 설정
+        const targetElements = document.querySelectorAll(".fade-wrap");
+        targetElements.forEach((element) => {
+          observer.observe(element);
+        });
+      </script>
+    
+</body>
+</html>

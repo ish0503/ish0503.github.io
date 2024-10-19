@@ -1,0 +1,14 @@
+{
+  "name": "the_world",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "gh-pages": "^6.2.0",
+    "mongoose": "^8.7.2"
+  }
+}
